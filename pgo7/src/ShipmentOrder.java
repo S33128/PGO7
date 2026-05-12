@@ -42,7 +42,7 @@ public abstract class ShipmentOrder implements SummaryPrintable {
         validateOrder();
         validateSpecificRules();
         double price = calculateBasePrice();
-        price += calculatedAdditionalFee();
+        price += calculateAdditionalFee();
         price = applyInsurance(price);
         price = applyBusinessDiscount(price);
         lastCalculatedPrice = price;
@@ -85,6 +85,6 @@ public abstract class ShipmentOrder implements SummaryPrintable {
     }
 
     protected abstract double calculateBasePrice();
-    protected abstract double calculatedAdditionalFee();
-    protected abstract String getShipmentType();
+    protected abstract double calculateAdditionalFee();
+    public abstract String getShipmentType();
 }
